@@ -1,8 +1,10 @@
-import fp from '@fastify-plugin';
+import fp from 'fastify-plugin';
 import jwt from '@fastify/jwt';
 
+
+
 async function authPlugin(fastify, options) {
-    fastify.register(fp, {
+    fastify.register(jwt, {
         secret: process.env.JWT_SECRET,
     });
 

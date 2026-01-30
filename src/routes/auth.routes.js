@@ -3,15 +3,15 @@ import { pool } from '../config/database.js';
 
 async function authRoutes(fastify, options) {
     // Ruta de login
-    fastify.post('/register', async (request, reply) => {
-        const { username, password, role } = request.body;
+    fastify.post('/registrar', async (request, reply) => {
+        const { user, password, rol } = request.body;
         const hashedPassword = await bcrypt.hash(password, 10);
         try {
             const [result] = await pool.query(
-                'INSERT INTO users (username, password, role) VALUES (?, ?, ?)',
-                [username, hashedPassword, role || 'user']
+                'INSERT INTO users (username, password_hash, role) VALUES (?, ?, ?)',
+                [user, hashedPassword, rol || 'user']
             );
-            reply.send({ id: result.insertId, username, role: role || 'user' });
+            reply.send({ id: result.insertId, user, rol: rol || 'user' });
         }
         catch (error) {
             reply.status(500).send({ error: 'Database error', message: error.message });
