@@ -5,17 +5,25 @@
   "type": "module",
   "scripts": {
     "start": "node src/server.js",
-    "dev": "nodemon"
+    "dev": "nodemon",
+    "db:setup": "node database/setup.js",
+    "mcp": "node src/mcp-server.js"
   },
   "dependencies": {
     "@fastify/cors": "^11.2.0",
+    "@fastify/formbody": "^8.0.2",
     "@fastify/jwt": "^10.0.0",
+    "@fastify/swagger": "^9.7.0",
+    "@fastify/swagger-ui": "^5.2.5",
     "@modelcontextprotocol/sdk": "^1.25.3",
     "bcryptjs": "^3.0.3",
     "dotenv": "16.4.0",
     "fastify": "^5.7.1",
     "fastify-plugin": "^5.1.0",
     "mysql2": "^3.16.1",
+    "nodemailer": "^7.0.13",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1",
     "zod": "^4.3.6"
   },
   "devDependencies": {

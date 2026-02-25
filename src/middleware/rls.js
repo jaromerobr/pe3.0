@@ -1,25 +1,26 @@
 /*
-1. usuario envia request con jwt
-2. jwt contiene id y el username 
-3. middleware agrega un WHERE para userid
-4. query SELECT * FROM recursos WHERE owner_id = <id del jwt>
-5 usuario solo ve sus registros
+Row Level Security (RLS) - Middleware de Seguridad
 
+1. Usuario envía request con JWT
+2. JWT contiene id, username y role
+3. Middleware agrega un WHERE para user_id
+4. Query: SELECT * FROM financial_records WHERE user_id = <id del JWT>
+5. Usuario solo ve sus propios registros
+6. Admin puede ver todos los registros
 */
 
 export function buildRLSFilter(user) {
     if (user.role === 'admin') {
         return { clause: '1=1', params: [] }; // Sin restricciones para admin
     }
-    return { clause: 'owner_id = ?', params: [user.id] };
+    return { clause: 'user_id = ?', params: [user.id] };
 }
 
-//verificar si el usuario es due;o de un registro especifico
-
+// Verificar si el usuario es dueño de un registro específico
 export async function verifyOwnership(pool, table, recordId, userId) {
-    const [rows] = await pool.excecute(
-        `SELECT COUNT(*) as count FROM ${table} WHERE id = ? AND owner_id = ?`,
-        [recordId, userId]
+    const [rows] = await pool.execute(
+        `SELECT COUNT(*) as count FROM ?? WHERE id = ? AND user_id = ?`,
+        [table, recordId, userId]
     );
     if (rows.length === 0) return false;
     return rows[0].count > 0;
