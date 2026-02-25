@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TA-3.3 - Proyecto Integrador PE-3.1</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333; line-height: 1.6; padding: 40px; max-width: 900px; margin: 0 auto; }
+        
+        /* Cover */
+        .cover { text-align: center; page-break-after: always; padding: 80px 20px; min-height: 90vh; display: flex; flex-direction: column; justify-content: center; }
+        .cover h1 { font-size: 2.2em; color: #1a365d; margin-bottom: 10px; }
+        .cover h2 { font-size: 1.4em; color: #2d3748; margin-bottom: 30px; font-weight: normal; }
+        .cover .info { font-size: 1.1em; color: #4a5568; margin: 8px 0; }
+        .cover .university { font-size: 1.3em; font-weight: bold; color: #2b6cb0; margin-bottom: 40px; }
+        .cover .date { margin-top: 40px; color: #718096; }
+        
+        /* Sections */
+        h2 { color: #1a365d; border-bottom: 3px solid #3182ce; padding-bottom: 8px; margin: 30px 0 15px; font-size: 1.5em; }
+        h3 { color: #2d3748; margin: 20px 0 10px; font-size: 1.2em; }
+        h4 { color: #4a5568; margin: 15px 0 8px; }
+        p { margin: 8px 0; text-align: justify; }
+        
+        /* Links */
+        .link-box { background: #ebf8ff; border: 2px solid #3182ce; border-radius: 8px; padding: 15px 20px; margin: 15px 0; }
+        .link-box label { font-weight: bold; color: #2b6cb0; display: block; margin-bottom: 5px; }
+        .link-box a { color: #2b6cb0; word-break: break-all; font-size: 1.05em; }
+        
+        /* Tables */
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+        th, td { padding: 10px 12px; text-align: left; border: 1px solid #e2e8f0; }
+        th { background: #2b6cb0; color: white; font-weight: 600; }
+        tr:nth-child(even) { background: #f7fafc; }
+        
+        /* Code */
+        pre { background: #1a202c; color: #e2e8f0; padding: 16px; border-radius: 8px; overflow-x: auto; font-size: 0.85em; margin: 12px 0; }
+        code { font-family: 'Consolas', 'Courier New', monospace; }
+        .inline-code { background: #edf2f7; padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 0.9em; }
+        
+        /* Architecture diagram */
+        .diagram { background: #f7fafc; border: 2px solid #e2e8f0; border-radius: 8px; padding: 20px; text-align: center; margin: 15px 0; font-family: monospace; white-space: pre; line-height: 1.4; font-size: 0.85em; }
+        
+        /* Screenshot placeholder */
+        .screenshot { background: #f0f4f8; border: 2px dashed #a0aec0; border-radius: 8px; padding: 40px 20px; text-align: center; margin: 15px 0; color: #718096; }
+        .screenshot img { max-width: 100%; border-radius: 4px; }
+        
+        /* Page break */
+        .page-break { page-break-before: always; }
+        
+        /* Lists */
+        ul, ol { padding-left: 25px; margin: 10px 0; }
+        li { margin: 5px 0; }
+        
+        /* Highlight */
+        .highlight { background: #fffbeb; border-left: 4px solid #ecc94b; padding: 12px 16px; margin: 12px 0; }
+        
+        @media print {
+            body { padding: 20px; }
+            .page-break { page-break-before: always; }
+            .cover { page-break-after: always; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!-- PORTADA -->
+<!-- ============================================================ -->
+<div class="cover">
+    <div class="university">UNIVERSIDAD / INSTITUCIÓN</div>
+    <h1>TA-3.3 - Proyecto Integrador</h1>
+    <h2>API REST de Gestión Financiera Personal<br>con Servidor MCP e Integración con Claude Desktop</h2>
+    <br>
+    <div class="info"><strong>Asignatura:</strong> Protocolos de Comunicación / Programación en Entornos</div>
+    <div class="info"><strong>Integrantes:</strong></div>
+    <div class="info">• James Romero - [Código]</div>
+    <div class="info">• [Nombre compañero 2] - [Código]</div>
+    <div class="info">• [Nombre compañero 3] - [Código]</div>
+    <div class="info"><strong>Grupo:</strong> [Número de grupo]</div>
+    <div class="date">Febrero 2026</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- 1. ENLACES DE ENTREGA -->
+<!-- ============================================================ -->
+<h2>1. Enlaces de Entrega</h2>
+
+<div class="link-box">
+    <label>📦 Repositorio de Código (GitHub):</label>
+    <a href="https://github.com/jaromerobr/pe3.0" target="_blank">https://github.com/jaromerobr/pe3.0</a>
+</div>
+
+<div class="link-box">
+    <label>📚 Documentación Swagger/OpenAPI (URL desplegada):</label>
+    <a href="https://[TU-APP].onrender.com/docs" target="_blank">https://[TU-APP].onrender.com/docs</a>
+    <br><small>⚠️ Reemplazar con la URL real después del despliegue en Render</small>
+</div>
+
+<div class="link-box">
+    <label>📽️ Video demostrativo / Capturas:</label>
+    <a href="[URL_DEL_VIDEO_O_DRIVE]" target="_blank">[URL del video demostrativo]</a>
+</div>
+
+<div class="link-box">
+    <label>📊 Diapositivas de presentación:</label>
+    <a href="[URL_PRESENTACIÓN]" target="_blank">[URL de las diapositivas]</a>
+</div>
+
+<!-- ============================================================ -->
+<!-- 2. PROBLEMÁTICA -->
+<!-- ============================================================ -->
+<div class="page-break"></div>
+<h2>2. Problemática</h2>
+
+<h3>¿Qué problema resuelve nuestro sistema?</h3>
+
+<p>Las personas y pequeños negocios necesitan llevar un control de sus finanzas (ingresos y egresos), pero muchas soluciones existentes no garantizan la <strong>privacidad de los datos</strong> ni permiten <strong>interacción inteligente</strong> con la información financiera.</p>
+
+<p>Nuestro sistema resuelve tres problemas clave:</p>
+
+<ol>
+    <li><strong>Seguridad de datos financieros:</strong> Cada usuario solo puede ver, modificar y eliminar sus propios registros gracias a Row Level Security (RLS), implementado tanto a nivel de API como de base de datos.</li>
+    <li><strong>Autenticación robusta:</strong> El sistema utiliza autenticación en dos pasos con códigos OTP enviados por correo electrónico, previniendo accesos no autorizados incluso si la contraseña es comprometida.</li>
+    <li><strong>Acceso inteligente a datos:</strong> Mediante la integración con Claude Desktop a través del protocolo MCP, los usuarios pueden consultar y gestionar sus finanzas usando lenguaje natural, manteniendo todas las restricciones de seguridad.</li>
+</ol>
+
+<!-- ============================================================ -->
+<!-- 3. ARQUITECTURA -->
+<!-- ============================================================ -->
+<h2>3. Arquitectura de la Solución</h2>
+
+<div class="diagram">
+┌─────────────────────┐         ┌───────────────────────┐
+│   Cliente Web /      │  HTTP   │    API REST            │
+│   Swagger UI         │────────▶│    (Fastify + JWT)     │
+│   (Documentación)    │         │                       │
+└─────────────────────┘         │  ┌─────────────────┐  │
+                                │  │ Auth Plugin (JWT)│  │
+┌─────────────────────┐         │  │ RLS Middleware   │  │       ┌──────────────┐
+│   Claude Desktop     │  stdio  │  │ Swagger/OpenAPI  │  │       │  MySQL 8.0   │
+│   (IA Agent)         │────────▶│  └─────────────────┘  │──────▶│              │
+│                     │ MCP     │                       │       │ • users      │
+└─────────────────────┘         └───────────────────────┘       │ • otp_codes  │
+         │                              │                       │ • financial_ │
+         │                              │                       │   records    │
+         ▼                              ▼                       │ • audit_logs │
+┌─────────────────────┐         ┌───────────────────────┐       │ • Vue RLS    │
+│   MCP Server         │         │   Nodemailer           │       │ • Triggers   │
+│   (10 herramientas)  │         │   (OTP por email)      │       └──────────────┘
+│   • Auth (OTP)       │         │   Gmail SMTP           │
+│   • CRUD Records     │         └───────────────────────┘
+│   • Balance/Audit    │
+└─────────────────────┘
+</div>
+
+<h3>Componentes principales:</h3>
+<table>
+    <tr><th>Componente</th><th>Tecnología</th><th>Función</th></tr>
+    <tr><td>API REST</td><td>Fastify 5.x</td><td>Servidor HTTP con endpoints RESTful</td></tr>
+    <tr><td>Autenticación</td><td>JWT + OTP</td><td>Login en 2 pasos con código por email</td></tr>
+    <tr><td>Base de Datos</td><td>MySQL 8.0</td><td>Almacenamiento con RLS y triggers de auditoría</td></tr>
+    <tr><td>Documentación</td><td>Swagger/OpenAPI 3.0</td><td>Documentación interactiva en /docs</td></tr>
+    <tr><td>Servidor MCP</td><td>@modelcontextprotocol/sdk</td><td>Integración con Claude Desktop (10 tools)</td></tr>
+    <tr><td>Email</td><td>Nodemailer + Gmail</td><td>Envío de códigos OTP</td></tr>
+    <tr><td>Validación</td><td>Zod</td><td>Validación estricta de datos de entrada</td></tr>
+    <tr><td>Seguridad</td><td>bcryptjs</td><td>Hash de contraseñas</td></tr>
+</table>
+
+<!-- ============================================================ -->
+<!-- 4. DESPLIEGUE API REST + SWAGGER -->
+<!-- ============================================================ -->
+<div class="page-break"></div>
+<h2>4. Despliegue API REST + Swagger</h2>
+
+<h3>4.1 Servidor desplegado</h3>
+<p>La API fue desplegada en <strong>Render</strong> como un Web Service con Node.js. La documentación Swagger/OpenAPI es pública y permite interactuar con todos los endpoints.</p>
+
+<div class="link-box">
+    <label>URL de la API:</label>
+    <a href="https://[TU-APP].onrender.com" target="_blank">https://[TU-APP].onrender.com</a>
+</div>
+<div class="link-box">
+    <label>URL de Swagger:</label>
+    <a href="https://[TU-APP].onrender.com/docs" target="_blank">https://[TU-APP].onrender.com/docs</a>
+</div>
+
+<h3>4.2 Captura de Swagger UI</h3>
+<div class="screenshot">
+    <p><strong>[INSERTAR CAPTURA DE PANTALLA DE SWAGGER UI AQUÍ]</strong></p>
+    <p>Captura mostrando la documentación Swagger con todos los endpoints:<br>
+    Auth (register, login, verify-otp, me), Records (CRUD), Audit, Users</p>
+</div>
+
+<h3>4.3 Endpoints disponibles</h3>
+<table>
+    <tr><th>Método</th><th>Ruta</th><th>Descripción</th><th>Auth</th></tr>
+    <tr><td>POST</td><td>/auth/register</td><td>Registrar usuario con email</td><td>No</td></tr>
+    <tr><td>POST</td><td>/auth/login</td><td>Login → envía OTP al correo</td><td>No</td></tr>
+    <tr><td>POST</td><td>/auth/verify-otp</td><td>Verificar OTP → obtener JWT</td><td>No</td></tr>
+    <tr><td>GET</td><td>/auth/me</td><td>Perfil del usuario autenticado</td><td>JWT</td></tr>
+    <tr><td>GET</td><td>/records</td><td>Listar registros (con RLS)</td><td>JWT</td></tr>
+    <tr><td>POST</td><td>/records</td><td>Crear registro financiero</td><td>JWT</td></tr>
+    <tr><td>PUT</td><td>/records/:id</td><td>Actualizar registro (RLS)</td><td>JWT</td></tr>
+    <tr><td>DELETE</td><td>/records/:id</td><td>Eliminar registro (RLS)</td><td>JWT</td></tr>
+    <tr><td>GET</td><td>/audit</td><td>Logs de auditoría</td><td>JWT</td></tr>
+    <tr><td>GET</td><td>/users</td><td>Listar usuarios (solo admin)</td><td>JWT+Admin</td></tr>
+</table>
+
+<!-- ============================================================ -->
+<!-- 5. SERVIDOR MCP Y CLAUDE DESKTOP -->
+<!-- ============================================================ -->
+<div class="page-break"></div>
+<h2>5. Servidor MCP y Claude Desktop</h2>
+
+<h3>5.1 Configuración del MCP Server</h3>
+<p>El archivo de configuración para Claude Desktop (<span class="inline-code">claude_desktop_config.json</span>):</p>
+
+<pre><code>{
+  "mcpServers": {
+    "pe31-finanzas": {
+      "command": "node",
+      "args": ["C:/Users/ASUS Vivobook/Desktop/PE-3.1/src/mcp-server.js"],
+      "env": {
+        "DB_HOST": "localhost",
+        "DB_USER": "root",
+        "DB_PASSWORD": "root",
+        "DB_NAME": "pe31_rls",
+        "GMAIL_USER": "james201romero@gmail.com",
+        "GMAIL_PASSWORD": "cqsv wvut egej lpgo"
+      }
+    }
+  }
+}</code></pre>
+
+<h3>5.2 Herramientas MCP implementadas (10 tools)</h3>
+<table>
+    <tr><th>Herramienta</th><th>Categoría</th><th>Descripción</th></tr>
+    <tr><td>auth_login</td><td>🔐 Auth</td><td>Login con credenciales → envía OTP al email</td></tr>
+    <tr><td>auth_verify_otp</td><td>🔐 Auth</td><td>Verificar código OTP → autenticar sesión</td></tr>
+    <tr><td>auth_status</td><td>🔐 Auth</td><td>Ver estado de sesión actual</td></tr>
+    <tr><td>auth_logout</td><td>🔐 Auth</td><td>Cerrar sesión</td></tr>
+    <tr><td>records_list</td><td>📊 CRUD</td><td>Listar registros financieros (con RLS)</td></tr>
+    <tr><td>records_get_balance</td><td>📊 CRUD</td><td>Obtener balance: ingresos, egresos, neto</td></tr>
+    <tr><td>records_create</td><td>📊 CRUD</td><td>Crear nuevo registro financiero</td></tr>
+    <tr><td>records_update</td><td>📊 CRUD</td><td>Actualizar registro (validación de propiedad)</td></tr>
+    <tr><td>records_delete</td><td>📊 CRUD</td><td>Eliminar registro (validación de propiedad)</td></tr>
+    <tr><td>audit_list</td><td>📋 Audit</td><td>Ver logs de auditoría del sistema</td></tr>
+</table>
+
+<h3>5.3 Evidencia de Autenticación OTP desde Claude Desktop</h3>
+
+<div class="screenshot">
+    <p><strong>[INSERTAR CAPTURA: Login con OTP desde Claude]</strong></p>
+    <p>Paso 1: El usuario dice "Inicia sesión con usuario testuser y contraseña test1234"<br>
+    Claude ejecuta auth_login → Se envía OTP al correo</p>
+</div>
+
+<div class="screenshot">
+    <p><strong>[INSERTAR CAPTURA: Email con código OTP recibido]</strong></p>
+    <p>El correo electrónico muestra el código OTP de 6 dígitos</p>
+</div>
+
+<div class="screenshot">
+    <p><strong>[INSERTAR CAPTURA: Verificación OTP exitosa]</strong></p>
+    <p>Paso 2: El usuario dice "El código es 123456"<br>
+    Claude ejecuta auth_verify_otp → Sesión autenticada</p>
+</div>
+
+<h3>5.4 Evidencia de RLS (Row Level Security) desde Claude</h3>
+
+<div class="screenshot">
+    <p><strong>[INSERTAR CAPTURA: Registros filtrados por RLS]</strong></p>
+    <p>Al consultar registros, Claude muestra solo los registros del usuario autenticado.<br>
+    El mensaje indica: "RLS: Solo registros del usuario X"</p>
+</div>
+
+<div class="screenshot">
+    <p><strong>[INSERTAR CAPTURA: Intento de acceso a registro ajeno]</strong></p>
+    <p>Si se intenta modificar un registro de otro usuario:<br>
+    "🔒 Acceso denegado. RLS: Solo puedes modificar tus propios registros."</p>
+</div>
+
+<h3>5.5 Evidencia de Paridad Funcional (CRUD desde Claude)</h3>
+
+<div class="screenshot">
+    <p><strong>[INSERTAR CAPTURA: Crear registro desde Claude]</strong></p>
+    <p>"Registra un ingreso de $500 por salario" → records_create</p>
+</div>
+
+<div class="screenshot">
+    <p><strong>[INSERTAR CAPTURA: Balance desde Claude]</strong></p>
+    <p>"¿Cuál es mi balance?" → records_get_balance muestra ingresos, egresos y balance neto</p>
+</div>
+
+<div class="screenshot">
+    <p><strong>[INSERTAR CAPTURA: Auditoría desde Claude]</strong></p>
+    <p>"Muéstrame los logs de auditoría" → audit_list</p>
+</div>
+
+<!-- ============================================================ -->
+<!-- 6. MOTIVACIÓN -->
+<!-- ============================================================ -->
+<div class="page-break"></div>
+<h2>6. Motivación: ¿Por qué es útil esta integración con IA?</h2>
+
+<p>La integración del sistema financiero con Claude Desktop a través del protocolo MCP aporta ventajas significativas:</p>
+
+<ol>
+    <li><strong>Accesibilidad:</strong> Los usuarios pueden gestionar sus finanzas usando lenguaje natural, sin necesidad de conocer endpoints, headers o formatos de request. Simplemente dicen "registra un gasto de $50 en comida".</li>
+    
+    <li><strong>Seguridad mantenida:</strong> A pesar de la interfaz simplificada, todas las medidas de seguridad siguen activas: autenticación OTP, JWT, y RLS. La IA no puede evadir las restricciones de acceso.</li>
+    
+    <li><strong>Inteligencia contextual:</strong> Claude puede interpretar consultas complejas como "¿cuánto he gastado este mes?" o "¿mi balance es positivo?" y traducirlas a las operaciones correctas.</li>
+    
+    <li><strong>Interfaz dual:</strong> El mismo backend sirve tanto a interfaces web tradicionales (Swagger/REST) como a agentes de IA (MCP), demostrando que una arquitectura bien diseñada es reutilizable.</li>
+    
+    <li><strong>Futuro de las interfaces:</strong> MCP es el estándar emergente para conectar modelos de IA con sistemas externos. Dominar esta tecnología prepara al equipo para el futuro de la interacción humano-máquina.</li>
+</ol>
+
+<!-- ============================================================ -->
+<!-- 7. INTEGRACIÓN DE TEMAS (Semanas 1-13) -->
+<!-- ============================================================ -->
+<h2>7. Integración de Temas del Curso (Semanas 1-13)</h2>
+
+<table>
+    <tr>
+        <th>Semana</th>
+        <th>Tema</th>
+        <th>Componente del Proyecto</th>
+        <th>Archivo(s)</th>
+    </tr>
+    <tr>
+        <td>1-2</td>
+        <td>Protocolos de Comunicación HTTP</td>
+        <td>API REST con métodos GET, POST, PUT, DELETE. Uso de códigos de estado HTTP (200, 201, 401, 403, 404, 500). Headers de autenticación (Bearer Token).</td>
+        <td><span class="inline-code">src/server.js</span><br><span class="inline-code">src/routes/*.js</span></td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Diseño de APIs REST</td>
+        <td>Estructura RESTful con rutas semánticas (/auth, /records, /audit, /users). Prefijos de ruta, versionado implícito, respuestas JSON estandarizadas.</td>
+        <td><span class="inline-code">src/server.js</span></td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>Middlewares</td>
+        <td>Plugin de autenticación JWT como middleware global. Middleware RLS que filtra queries automáticamente. Hooks de Fastify (onRequest) para proteger rutas.</td>
+        <td><span class="inline-code">src/plugins/auth.js</span><br><span class="inline-code">src/middleware/rls.js</span></td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>Autenticación y Autorización</td>
+        <td>JWT para sesiones stateless. Roles (admin/user). Decorators de Fastify (authenticate, isAdmin). Contraseñas hasheadas con bcrypt.</td>
+        <td><span class="inline-code">src/plugins/auth.js</span><br><span class="inline-code">src/routes/auth.routes.js</span></td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>Seguridad en APIs</td>
+        <td>Row Level Security (RLS) a nivel de API y base de datos. Validación estricta con Zod. Prevención de SQL injection con queries parametrizadas. CORS configurado.</td>
+        <td><span class="inline-code">src/middleware/rls.js</span><br><span class="inline-code">src/mcp-server.js</span></td>
+    </tr>
+    <tr>
+        <td>7</td>
+        <td>Bases de Datos</td>
+        <td>MySQL con pool de conexiones. Triggers de auditoría automática. Vista SQL para RLS. Función almacenada para identidad de sesión. Esquema relacional con FK.</td>
+        <td><span class="inline-code">database/schema.sql</span><br><span class="inline-code">src/config/database.js</span></td>
+    </tr>
+    <tr>
+        <td>8</td>
+        <td>Documentación de APIs</td>
+        <td>Swagger/OpenAPI 3.0 integrado con @fastify/swagger. Documentación interactiva en /docs. Schemas de request/response definidos. Tags por categoría.</td>
+        <td><span class="inline-code">src/server.js</span><br><span class="inline-code">src/routes/*.js</span></td>
+    </tr>
+    <tr>
+        <td>9-10</td>
+        <td>Mensajería y Notificaciones</td>
+        <td>Envío de emails con Nodemailer y Gmail SMTP. Códigos OTP de 6 dígitos con expiración de 5 minutos. Sistema de verificación en 2 pasos.</td>
+        <td><span class="inline-code">src/services/email.service.js</span><br><span class="inline-code">src/routes/auth.routes.js</span></td>
+    </tr>
+    <tr>
+        <td>11</td>
+        <td>Validación de Datos</td>
+        <td>Validación con Zod en el servidor MCP. Schemas de Fastify para validación automática de body, params y querystring en la API.</td>
+        <td><span class="inline-code">src/mcp-server.js</span><br><span class="inline-code">src/routes/*.js</span></td>
+    </tr>
+    <tr>
+        <td>12</td>
+        <td>Model Context Protocol (MCP)</td>
+        <td>Servidor MCP con 10 herramientas. Transporte stdio. Integración con Claude Desktop. Descripción semántica de herramientas para la IA.</td>
+        <td><span class="inline-code">src/mcp-server.js</span></td>
+    </tr>
+    <tr>
+        <td>13</td>
+        <td>Despliegue y Cloud</td>
+        <td>Despliegue en Render (Web Service). Variables de entorno en producción. Base de datos MySQL remota. Documentación Swagger pública.</td>
+        <td><span class="inline-code">render.yaml</span><br><span class="inline-code">.env.example</span></td>
+    </tr>
+</table>
+
+<!-- ============================================================ -->
+<!-- 8. INSTRUCCIONES DE CONFIGURACIÓN -->
+<!-- ============================================================ -->
+<div class="page-break"></div>
+<h2>8. Instrucciones de Configuración y Ejecución</h2>
+
+<h3>8.1 Requisitos previos</h3>
+<ul>
+    <li>Node.js 18+ instalado</li>
+    <li>MySQL 8.0+ instalado y corriendo</li>
+    <li>Cuenta de Gmail con contraseña de aplicación</li>
+    <li>Claude Desktop instalado (para MCP)</li>
+</ul>
+
+<h3>8.2 Instalación local</h3>
+<pre><code># 1. Clonar el repositorio
+git clone https://github.com/jaromerobr/pe3.0.git
+cd pe3.0
+
+# 2. Instalar dependencias
+npm install
+
+# 3. Configurar variables de entorno
+cp .env.example .env
+# Editar .env con tus credenciales
+
+# 4. Crear la base de datos
+npm run db:setup
+
+# 5. Iniciar el servidor API
+npm run dev
+
+# 6. Abrir Swagger UI
+# http://localhost:4000/docs</code></pre>
+
+<h3>8.3 Configuración de Claude Desktop</h3>
+<p>Editar el archivo <span class="inline-code">%APPDATA%\Claude\claude_desktop_config.json</span> en Windows:</p>
+
+<pre><code>{
+  "mcpServers": {
+    "pe31-finanzas": {
+      "command": "node",
+      "args": ["C:/RUTA/AL/PROYECTO/src/mcp-server.js"],
+      "env": {
+        "DB_HOST": "localhost",
+        "DB_USER": "root",
+        "DB_PASSWORD": "tu_password",
+        "DB_NAME": "pe31_rls",
+        "GMAIL_USER": "tu@gmail.com",
+        "GMAIL_PASSWORD": "xxxx xxxx xxxx xxxx"
+      }
+    }
+  }
+}</code></pre>
+
+<h3>8.4 Flujo de prueba recomendado</h3>
+<ol>
+    <li>En Claude Desktop: <em>"Inicia sesión con usuario testuser y contraseña test1234"</em></li>
+    <li>Revisa tu correo y obtén el código OTP</li>
+    <li>En Claude: <em>"Mi código es [123456]"</em></li>
+    <li>En Claude: <em>"Crea un ingreso de $1000 por concepto de salario"</em></li>
+    <li>En Claude: <em>"Muéstrame mi balance financiero"</em></li>
+    <li>En Claude: <em>"Lista mis transacciones recientes"</em></li>
+    <li>En Claude: <em>"Muéstrame los logs de auditoría"</em></li>
+</ol>
+
+<!-- ============================================================ -->
+<!-- 9. CONCLUSIONES -->
+<!-- ============================================================ -->
+<h2>9. Conclusiones</h2>
+
+<p>Este proyecto integrador consolidó los conocimientos adquiridos durante las semanas 1 a 13 del curso, implementando una solución completa que abarca desde el diseño de APIs REST hasta la integración con inteligencia artificial mediante el protocolo MCP.</p>
+
+<p>Los principales logros técnicos fueron:</p>
+<ul>
+    <li>Implementación exitosa de autenticación en dos factores (OTP por email)</li>
+    <li>Row Level Security funcional a múltiples niveles (API, BD, MCP)</li>
+    <li>Documentación Swagger interactiva y públicamente accesible</li>
+    <li>Servidor MCP con paridad funcional completa respecto a la API REST</li>
+    <li>Auditoría automática de todas las operaciones mediante triggers</li>
+    <li>Despliegue exitoso en la nube con Render</li>
+</ul>
+
+<p>La integración con Claude Desktop demostró que es posible mantener todas las medidas de seguridad mientras se ofrece una interfaz de lenguaje natural, representando el futuro de la interacción con sistemas informáticos.</p>
+
+</body>
+</html>

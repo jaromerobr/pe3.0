@@ -1,0 +1,28 @@
+services:
+  - type: web
+    name: pe31-api-rest
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: DB_HOST
+        sync: false
+      - key: DB_USER
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: DB_NAME
+        sync: false
+      - key: DB_PORT
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: JWT_EXPIRES_IN
+        value: 1h
+      - key: PORT
+        value: 4000
+      - key: GMAIL_USER
+        sync: false
+      - key: GMAIL_PASSWORD
+        sync: false
